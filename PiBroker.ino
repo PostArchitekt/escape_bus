@@ -9,12 +9,14 @@ char auth[] = ""YourBLYNKAuthToken"";
 BLYNK_WRITE(V12)
   {
   String action = param.asStr();
-
+  
+  // Start Video Playing
   if (action == "play") {
     Particle.publish("Video", "now playing");
     system("omxplayer --no-keys -b -o hdmi /home/pi/Videos/Path_To_File.mp4 &");
     
   }
+  // Kill Video Playing
   if (action == "stop") {
     
     system("sudo kill -9 $(pgrep omxplayer)");
