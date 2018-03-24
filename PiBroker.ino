@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <MQTT.h>
 
-char auth[] = ""YourBLYNKAuthToken"";
+char auth[] = "YourBLYNKAuthToken";
 
 BLYNK_WRITE(V12)
   {
