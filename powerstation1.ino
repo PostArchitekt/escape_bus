@@ -27,7 +27,7 @@ SolidColorPicker solid;
 
 // Initialize MQTT Client and parse data
 void callback(char* topic, byte* payload, unsigned int length);
-byte server[] = { 192, 168, 1, 50 }; //IP Address for Raspberry Pi MQTT Server
+byte server[] = { 192, 168, 1, 75 }; //IP Address for Raspberry Pi MQTT Server
 MQTT client(server, 1883, callback);
 
 bool blynk_ready = false;
@@ -38,6 +38,7 @@ void setup() {
     Serial.begin(9600);
     delay(5000);
     Blynk.begin(auth);
+    
     //Connect to Raspberry Pi Broker
     client.connect("PowerStation");
     
@@ -63,7 +64,7 @@ void setup() {
     WhiteLights2();
     
 }
-// recieve message
+// recieve mqtt message
 void callback(char* topic, byte* payload, unsigned int length) {
     char p[length + 1];
     memcpy(p, payload, length);
@@ -79,10 +80,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
         
     }else if (!strcmp(p, "exit")) {
         WhiteLights();
-        /*
-    }else if (!strcmp(p, "powerblack")) {
-        Black2();
-        */
+       
     }
     //delay(1000);
    
@@ -112,7 +110,7 @@ void RedLights() {
 }
 
 void loop() {
-    //MQTT Start Connection
+    //MQTT Connection
     if (client.isConnected()){
         client.loop();
     }
