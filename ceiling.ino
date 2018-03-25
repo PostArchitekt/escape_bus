@@ -33,7 +33,7 @@ bool stationlights = true;
 
 // Initialize MQTT Client and parse incoming data
 void callback(char* topic, byte* payload, unsigned int length);
-byte server[] = { 192, 168, 1, 50 }; //IP Address of Raspberry Pi MQTT Broker
+byte server[] = { 192, 168, 1, 75 }; //IP Address of Raspberry Pi MQTT Broker
 MQTT client(server, 1883, callback);
 
 // recieve message
