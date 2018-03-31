@@ -37,7 +37,7 @@ char auth[] = "e62a3458b30848e4b3ce94dfb0f43918";
 
 void setup() {
     Serial.begin(9600);
-    delay(2000000);
+    delay(5000);
     Blynk.begin(auth);
     //Connect to Raspberry Pi Broker
     client.connect("RelayLights");
