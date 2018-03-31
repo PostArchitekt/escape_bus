@@ -5,9 +5,9 @@
 
 NCD4Relay controller;
 
-// Initialize MQTT Client and parse data
+// Initialize MQTT Client
 void callback(char* topic, byte* payload, unsigned int length);
-byte server[] = { 192, 168, 1, 75 }; // Initialize MQTT Client and parse data
+byte server[] = { 192, 168, 1, 75 };
 MQTT client(server, 1883, callback);
 
 bool blynk_ready = false;
